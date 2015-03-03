@@ -7,7 +7,7 @@
  *
  * Enqueue scripts in the following order:
  * 1. jquery-1.11.1.min.js via Google CDN
- * 2. /theme/assets/js/vendor/modernizr.min.js
+ * 2. /theme/assets/js/head.js
  * 3. /theme/assets/js/scripts.js
  *
  * Google Analytics is loaded after enqueued scripts if:
@@ -21,18 +21,18 @@ function roots_scripts() {
    */
   if (WP_ENV === 'development') {
     $assets = array(
-      'css'       => '/assets/css/main.css',
-      'js'        => '/assets/js/scripts.js',
-      'modernizr' => '/assets/vendor/modernizr/modernizr.js',
+      'css'       => '/assets/styles/main.css',
+      'js'        => '/assets/scripts/scripts.js',
+      'head' => '/assets/scripts/head.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js'
     );
   } else {
     $get_assets = file_get_contents(get_template_directory() . '/assets/manifest.json');
     $assets     = json_decode($get_assets, true);
     $assets     = array(
-      'css'       => '/assets/css/main.min.css?' . $assets['assets/css/main.min.css']['hash'],
-      'js'        => '/assets/js/scripts.min.js?' . $assets['assets/js/scripts.min.js']['hash'],
-      'modernizr' => '/assets/js/vendor/modernizr.min.js',
+      'css'       => '/assets/styles/main.min.css?' . $assets['assets/css/main.min.css']['hash'],
+      'js'        => '/assets/scripts/scripts.min.js?' . $assets['assets/js/scripts.min.js']['hash'],
+      'head' => '/assets/scripts/head.min.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'
     );
   }
@@ -54,7 +54,7 @@ function roots_scripts() {
     wp_enqueue_script('comment-reply');
   }
 
-  wp_enqueue_script('modernizr', get_template_directory_uri() . $assets['modernizr'], array(), null, true);
+  wp_enqueue_script('head', get_template_directory_uri() . $assets['head'], array(), null, true);
   wp_enqueue_script('jquery');
   wp_enqueue_script('roots_js', get_template_directory_uri() . $assets['js'], array(), null, true);
 }

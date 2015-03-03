@@ -2,22 +2,23 @@ var packageConfig = require('../package.json');
 
 var dest = "./build/content/themes/" + packageConfig.name;
 var src = './src';
+var bowerSrc = './bower_components';
 
 module.exports = {
   browserSync: {
     proxy: 'wordpress-starter.dev'
   },
   sass: {
-    src: src + "assets/styles/main.sass",
-    dest: dest + "assets/styles/main.css",
+    src: src + "/assets/styles/main.sass",
+    dest: dest + "/assets/styles/main.css",
     settings: {
       indentedSyntax: true, // Enable .sass syntax!
       imagePath: 'assets/images' // Used by the image-url helper
     }
   },
   images: {
-    src: src + "assets/images/**",
-    dest: dest + "assets/images"
+    src: src + "/assets/images/**",
+    dest: dest + "/assets/images"
   },
   markup: {
     src: src + "/htdocs/**",
@@ -25,9 +26,9 @@ module.exports = {
   },
   iconFonts: {
     name: 'Gulp Starter Icons',
-    src: src + 'assets/icons/*.svg',
-    dest: dest + 'assets/fonts',
-    sassDest: src + 'assets/styles',
+    src: src + '/assets/icons/*.svg',
+    dest: dest + '/assets/fonts',
+    sassDest: src + '/assets/styles',
     template: './gulp/tasks/iconFont/template.sass.swig',
     sassOutputName: '_icons.sass',
     fontPath: 'fonts',
@@ -52,6 +53,22 @@ module.exports = {
       // See https://github.com/greypants/gulp-starter/issues/87 for note about
       // why this is 'backbone/node_modules/underscore' and not 'underscore'
     }]
+  },
+  concat: {
+    head: {
+      src: [
+        bowerSrc + '/modernizr/modernizr.js'
+      ],
+      name: 'head.js',
+      dest: dest + '/assets/scripts/'
+    },
+    vendor: {
+      src: [
+        bowerSrc + '/respond/dest/respond.min.js'
+      ],
+      name: 'vendor.js',
+      dest: dest + '/assets/scripts/'
+    }
   },
   copy: {
     src: [ src + '/*.*', src + '/templates/**/*.*', src + '/lib/**/*.*', src + '/lang/**/*.*'],

@@ -11,5 +11,8 @@ gulp.task('watch', ['watchify','browserSync'], function(callback) {
   gulp.watch(config.images.src, ['images']);
   gulp.watch(config.markup.src, ['markup']);
   gulp.watch(config.copy.src,   ['copy']);
+  Object.keys(config.concat).forEach(function(key) {
+    gulp.watch(config.concat[key].src, ['concat:' + key]);
+  });
   // Watchify will watch and recompile our JS, so no need to gulp.watch it
 });
