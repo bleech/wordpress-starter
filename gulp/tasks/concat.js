@@ -15,7 +15,7 @@ var concatThis = function(bundleConfig) {
       .pipe(gulp.dest(bundleConfig.dest))
       .pipe(browserSync.reload({stream:true}));
   };
-}
+};
 
 Object.keys(config).forEach(function(key) {
   gulp.task('concat:' + key, concatThis(config[key]));

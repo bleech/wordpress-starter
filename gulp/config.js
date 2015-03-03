@@ -16,8 +16,38 @@ module.exports = {
       imagePath: 'assets/images' // Used by the image-url helper
     }
   },
+  sprites: {
+    spriteJPG: {
+      src: [src + '/assets/sprites/**/*.{jpg,jpeg}', '!' + src + '/assets/sprites/*.jpg'],
+      settings: {
+        imgName: 'sprite.jpg',
+        imgPath: '../images/sprite.jpg',
+        cssName: '_spriteJPG.sass',
+        engine: 'canvassmith',
+        cssVarMap: function (sprite) {
+          sprite.name = 'jpg-' + sprite.name;
+        },
+        cssOpts: {functions: false}
+      },
+      dest: src + '/assets/sprites'
+    },
+    spritePNG: {
+      src: [src + '/assets/sprites/**/*.png', '!' + src + '/assets/sprites/*.png'],
+      settings: {
+        imgName: 'sprite.png',
+        imgPath: '../images/sprite.png',
+        cssName: '_spritePNG.sass',
+        engine: 'canvassmith',
+        cssVarMap: function (sprite) {
+          sprite.name = 'png-' + sprite.name;
+        },
+        cssOpts: {functions: false}
+      },
+      dest: src + '/assets/sprites'
+    }
+  },
   images: {
-    src: src + "/assets/images/**",
+    src: [src + "/assets/images/**", src + "/assets/sprites/*.{jpg,png}"],
     dest: dest + "/assets/images"
   },
   jadePHP: {
