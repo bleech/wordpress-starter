@@ -20,8 +20,8 @@ module.exports = {
     src: src + "/assets/images/**",
     dest: dest + "/assets/images"
   },
-  markup: {
-    src: src + "/htdocs/**",
+  jadePHP: {
+    src: src + "/**/*.php.jade",
     dest: dest
   },
   iconFonts: {
@@ -71,7 +71,7 @@ module.exports = {
     }
   },
   copy: {
-    src: [ src + '/*.*', src + '/templates/**/*.*', src + '/lib/**/*.*', src + '/lang/**/*.*'],
+    src: [ src + '/*.*', src + '/templates/**/*.*', src + '/lib/**/*.*', src + '/lang/**/*.*', '!' + src + "/**/*.php.jade",],
     base: src,
     dest: dest
   },
