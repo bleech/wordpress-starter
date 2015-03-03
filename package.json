@@ -1,21 +1,12 @@
 {
-  "name": "roots",
-  "version": "7.0.3",
-  "author": "Ben Word <ben@benword.com>",
-  "homepage": "http://roots.io",
+  "name": "wordpress-starter",
+  "version": "0.0.1",
+  "author": "bleech <hello@bleech.de>",
+  "homepage": "http://bleech.de",
   "repository": {
     "type": "git",
-    "url": "git://github.com/roots/roots.git"
+    "url": "git://github.com/bleech/wordpress-starter.git"
   },
-  "bugs": {
-    "url": "https://github.com/roots/roots/issues"
-  },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://opensource.org/licenses/MIT"
-    }
-  ],
   "scripts": {
     "postinstall": "node node_modules/bower/bin/bower install"
   },

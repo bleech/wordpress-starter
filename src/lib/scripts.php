@@ -22,7 +22,7 @@ function roots_scripts() {
   if (WP_ENV === 'development') {
     $assets = array(
       'css'       => '/assets/styles/main.css',
-      'js'        => '/assets/scripts/scripts.js',
+      'js'        => '/assets/scripts/main.js',
       'head' => '/assets/scripts/head.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js'
     );
@@ -31,7 +31,7 @@ function roots_scripts() {
     $assets     = json_decode($get_assets, true);
     $assets     = array(
       'css'       => '/assets/styles/main.min.css?' . $assets['assets/css/main.min.css']['hash'],
-      'js'        => '/assets/scripts/scripts.min.js?' . $assets['assets/js/scripts.min.js']['hash'],
+      'js'        => '/assets/scripts/main.min.js?' . $assets['assets/js/scripts.min.js']['hash'],
       'head' => '/assets/scripts/head.min.js',
       'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'
     );

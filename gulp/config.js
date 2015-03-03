@@ -10,7 +10,7 @@ module.exports = {
   },
   sass: {
     src: src + "/assets/styles/main.sass",
-    dest: dest + "/assets/styles/main.css",
+    dest: dest + "/assets/styles",
     settings: {
       indentedSyntax: true, // Enable .sass syntax!
       imagePath: 'assets/images' // Used by the image-url helper
@@ -71,7 +71,14 @@ module.exports = {
     }
   },
   copy: {
-    src: [ src + '/*.*', src + '/templates/**/*.*', src + '/lib/**/*.*', src + '/lang/**/*.*', '!' + src + "/**/*.php.jade",],
+    src: [
+      src + '/assets/styles/editor-style.css',
+      src + '/*.*',
+      src + '/templates/**/*.*',
+      src + '/lib/**/*.*',
+      src + '/lang/**/*.*',
+      '!' + src + "/**/*.php.jade"
+    ],
     base: src,
     dest: dest
   },

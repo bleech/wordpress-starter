@@ -115,5 +115,7 @@ if ( !defined('AUTOSAVE_INTERVAL') )
 if ( !defined('WP_POST_REVISIONS') )
 	define('WP_POST_REVISIONS', false );
 
+define('WP_ENV', 'development');
+
 /** Sets up WordPress vars and included files. */
 require_once(ABSPATH . 'wp-settings.php');
