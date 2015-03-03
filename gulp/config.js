@@ -1,6 +1,6 @@
 var packageConfig = require('../package.json');
 
-var dest = "./build/content/themes" + packageConfig.name;
+var dest = "./build/content/themes/" + packageConfig.name;
 var src = './src';
 
 module.exports = {
