@@ -7,6 +7,7 @@
 - `cd {project}`
 - `rm -rf .git`
 - `git init`
+- `git submodule add git@github.com:WordPress/WordPress.git build/wordpress`
 - `git add .`
 - `git commit -am 'initial commit'`
 - create virtual host in mamp `{project}.bleech.de` to `./build` folder
