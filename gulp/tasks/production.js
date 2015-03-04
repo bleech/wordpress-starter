@@ -1,7 +1,11 @@
 var gulp = require('gulp');
+var runSequence = require('run-sequence');
 
 // Run this to compress all the things!
-gulp.task('production', ['karma', 'clean'], function(){
+gulp.task('production', function(cb){
   // This runs only if the karma tests pass
-  gulp.start(['coffeelint', 'jadePHP', 'images', 'copy', 'concat', 'iconFont', 'minifyCss', 'uglifyJs'])
+  return runSequence('clean',
+    ['coffeelint', 'jadePHP', 'images', 'copy', 'concat', 'minifyCss', 'uglifyJs'],
+    'rev'
+  );
 });

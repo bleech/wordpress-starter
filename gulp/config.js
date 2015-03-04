@@ -127,5 +127,12 @@ module.exports = {
     cssSrc: dest + '/*.css',
     jsSrc: dest + '/*.js',
     dest: dest
+  },
+  rev: {
+    src: dest + '/**/*.*',
+    settings: {
+      ignore: ['.php', '/style.css', '/screenshot.png', '.pot', '.md']
+    },
+    dest: dest
   }
 };
