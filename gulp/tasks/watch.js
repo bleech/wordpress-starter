@@ -11,10 +11,11 @@ gulp.task('watch', ['watchify','browserSync'], function(callback) {
     .concat(config.stylus.src)
     .concat(config.sprites.spriteJPG.src)
     .concat(config.sprites.spritePNG.src);
-  gulp.watch(stylus,              ['stylus']);
-  gulp.watch(config.images.src,   ['images']);
-  gulp.watch(config.jadePHP.src,  ['jadePHP']);
-  gulp.watch(config.copy.src,     ['copy']);
+  gulp.watch(stylus,                ['stylus']);
+  gulp.watch(config.images.src,     ['images']);
+  gulp.watch(config.jadePHP.src,    ['jadePHP']);
+  gulp.watch(config.copy.src,       ['copy']);
+  gulp.watch(config.coffeelint.src, ['coffeelint']);
 
   Object.keys(config.concat).forEach(function(key) {
     gulp.watch(config.concat[key].src, ['concat:' + key]);

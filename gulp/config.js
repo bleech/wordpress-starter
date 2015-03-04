@@ -89,6 +89,9 @@ module.exports = {
       // why this is 'backbone/node_modules/underscore' and not 'underscore'
     }]
   },
+  coffeelint: {
+    src: src + '/assets/scripts/**/*.coffee'
+  },
   concat: {
     head: {
       src: [

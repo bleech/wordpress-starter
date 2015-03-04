@@ -6,4 +6,4 @@ gulp.task('copy', function() {
   return gulp.src(config.src, { base: config.base })
     .pipe(gulp.dest(config.dest))
     .pipe(browserSync.reload({stream:true}));
-})
+});
