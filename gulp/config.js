@@ -140,9 +140,9 @@ module.exports = {
     src: dest
   },
   production: {
-    cssSrc: dest + '/*.css',
-    jsSrc: dest + '/*.js',
-    dest: dest
+    cssSrc: dest + '/assets/**/*.css',
+    jsSrc: dest + '/assets/**/*.js',
+    dest: dest + '/assets'
   },
   rev: {
     src: dest + '/**/*.*',

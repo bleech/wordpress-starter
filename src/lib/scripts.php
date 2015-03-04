@@ -19,25 +19,13 @@ function roots_scripts() {
    * The build task in Grunt renames production assets with a hash
    * Read the asset names from assets-manifest.json
    */
-  if (WP_ENV === 'development') {
-    $assets = array(
-      'css'       => '/assets/styles/main.css',
-      'cssVendor'       => '/assets/styles/vendor.css',
-      'js'        => '/assets/scripts/main.js',
-      'head' => '/assets/scripts/head.js',
-      'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js'
-    );
-  } else {
-    $get_assets = file_get_contents(get_template_directory() . '/assets/manifest.json');
-    $assets     = json_decode($get_assets, true);
-    $assets     = array(
-      'css'       => '/assets/styles/main.min.css?' . $assets['assets/css/main.min.css']['hash'],
-      'cssVendor'       => '/assets/styles/vendor.min.css?' . $assets['assets/css/main.min.css']['hash'],
-      'js'        => '/assets/scripts/main.min.js?' . $assets['assets/js/scripts.min.js']['hash'],
-      'head' => '/assets/scripts/head.min.js',
-      'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'
-    );
-  }
+  $assets = array(
+    'css'       => '/assets/styles/main.css',
+    'cssVendor'       => '/assets/styles/vendor.css',
+    'js'        => '/assets/scripts/main.js',
+    'head' => '/assets/scripts/head.js',
+    'jquery'    => '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js'
+  );
 
   wp_enqueue_style('roots_css', get_template_directory_uri() . $assets['css'], false, null);
   wp_enqueue_style('roots_css_vendor', get_template_directory_uri() . $assets['cssVendor'], false, null);
