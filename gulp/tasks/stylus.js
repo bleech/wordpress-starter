@@ -1,6 +1,6 @@
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync');
-var stylus         = require('gulp-stylus');
+var stylus       = require('gulp-stylus');
 var sourcemaps   = require('gulp-sourcemaps');
 var handleErrors = require('../util/handleErrors');
 var config       = require('../config').stylus;
