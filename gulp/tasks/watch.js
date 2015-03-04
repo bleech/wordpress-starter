@@ -16,6 +16,7 @@ gulp.task('watch', ['watchify','browserSync'], function(callback) {
   gulp.watch(config.jadePHP.src,    ['jadePHP']);
   gulp.watch(config.copy.src,       ['copy']);
   gulp.watch(config.coffeelint.src, ['coffeelint']);
+  gulp.watch(config.bootstrap.src,  ['bootstrap']);
 
   Object.keys(config.concat).forEach(function(key) {
     gulp.watch(config.concat[key].src, ['concat:' + key]);

@@ -17,6 +17,15 @@ module.exports = {
       'include css': true
     }
   },
+  bootstrap: {
+    src: src + "/assets/styles/vendor/bootstrap.scss",
+    settings: {
+      includePaths: [
+        './bower_components/twitter-bootstrap-sass/assets/stylesheets'
+      ]
+    },
+    dest: src + "/assets/styles/vendor",
+  },
   sprites: {
     spriteJPG: {
       src: [src + '/assets/sprites/**/*.{jpg,jpeg}', '!' + src + '/assets/sprites/*.jpg'],
@@ -106,6 +115,13 @@ module.exports = {
       ],
       name: 'vendor.js',
       dest: dest + '/assets/scripts/'
+    },
+    vendorCSS: {
+      src: [
+        src + '/assets/styles/vendor/bootstrap.css'
+      ],
+      name: 'vendor.css',
+      dest: dest + '/assets/styles'
     }
   },
   copy: {
