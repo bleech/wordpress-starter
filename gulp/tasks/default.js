@@ -1,5 +1,5 @@
 var gulp = require('gulp');
 
 gulp.task('default', ['clean'], function() {
-  gulp.start(['sass', 'images', 'jadePHP', 'copy', 'concat', 'watch']);
+  gulp.start(['stylus', 'images', 'jadePHP', 'copy', 'concat', 'watch']);
 });

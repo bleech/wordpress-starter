@@ -3,29 +3,32 @@ var packageConfig = require('../package.json');
 var dest = "./build/content/themes/" + packageConfig.name;
 var src = './src';
 var bowerSrc = './bower_components';
+var wpHost = 'wordpress-starter.dev';
 
 module.exports = {
   browserSync: {
-    proxy: 'wordpress-starter.dev'
+    proxy: wpHost,
+    open: false
   },
-  sass: {
-    src: src + "/assets/styles/main.sass",
+  stylus: {
+    src: src + "/assets/styles/main.styl",
     dest: dest + "/assets/styles",
     settings: {
-      indentedSyntax: true, // Enable .sass syntax!
-      imagePath: 'assets/images' // Used by the image-url helper
+      'include css': true
     }
   },
   sprites: {
     spriteJPG: {
       src: [src + '/assets/sprites/**/*.{jpg,jpeg}', '!' + src + '/assets/sprites/*.jpg'],
       settings: {
-        imgName: 'sprite.jpg',
+        imgName: 'sprite@2x.jpg',
         imgPath: '../images/sprite.jpg',
-        cssName: '_spriteJPG.sass',
+        cssName: '_spriteJPG.styl',
+        cssTemplate: './gulp/tasks/sprites/stylus.template.mustache',
         engine: 'canvassmith',
         cssVarMap: function (sprite) {
           sprite.name = 'jpg-' + sprite.name;
+          sprite.retina_image = '../images/sprite@2x.jpg';
         },
         cssOpts: {functions: false}
       },
@@ -34,12 +37,14 @@ module.exports = {
     spritePNG: {
       src: [src + '/assets/sprites/**/*.png', '!' + src + '/assets/sprites/*.png'],
       settings: {
-        imgName: 'sprite.png',
+        imgName: 'sprite@2x.png',
         imgPath: '../images/sprite.png',
-        cssName: '_spritePNG.sass',
+        cssName: '_spritePNG.styl',
+        cssTemplate: './gulp/tasks/sprites/stylus.template.mustache',
         engine: 'canvassmith',
         cssVarMap: function (sprite) {
           sprite.name = 'png-' + sprite.name;
+          sprite.retina_image = '../images/sprite@2x.png';
         },
         cssOpts: {functions: false}
       },
